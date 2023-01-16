@@ -13,9 +13,7 @@ yDimensionAngular = True
 spatialPoints = []
 configPoints = []
 
-rects = constraints.getConstrainedAreas()
-
-for rect in rects:
+for rect in constraints.getConstrainedSpatialAreas():
     for x in np.arange(rect[0], rect[1], 1 / samplingDensity):
         for y in np.arange(rect[2], rect[3], 1 / samplingDensity):
             spatialPoints.append([x,y])
@@ -26,6 +24,11 @@ for point in spatialPoints:
     for sol in ikSols:
         if sol[2]:
             configPoints.append([sol[0], sol[1]])
+
+for rect in constraints.getConstrainedConfigAreas():
+    for x in np.arange(rect[0], rect[1], 1 / samplingDensity):
+        for y in np.arange(rect[2], rect[3], 1 / samplingDensity):
+            configPoints.append([x,y])
 
 pointXs = []
 pointYs = []
