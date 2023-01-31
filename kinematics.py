@@ -3,6 +3,19 @@ import math
 segALength = 0.9
 segBLength = 0.7
 
+# must return a list of [elbowX, elbowY, endX, endY]
+def forwardKinematics(thetaA: float, thetaB: float) -> list: # keep this method!
+    cThetaA = thetaA % (2*math.pi)
+    cThetaB = thetaB % (2*math.pi)
+
+    elbowX = segALength * math.cos(cThetaA)
+    elbowY = segALength * math.sin(cThetaA)
+
+    eeX = (segBLength * math.cos(cThetaB)) + elbowX
+    eeY = (segBLength * math.sin(cThetaB)) + elbowY
+
+    return [elbowX, elbowY, eeX, eeY]
+    
 # must return a list of lists in format: [[dimensionAValue: float, dimensionBValue: float, isDefined: boolean], ...]
 def inverseKinematics(x: float, y: float) -> list: # keep this method!
     if (segALength + segBLength < math.sqrt(x**2 + y**2)):
