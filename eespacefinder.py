@@ -9,7 +9,7 @@ import matplotlib.pyplot as plt
 def inRange(a: float, b: float, check: float) -> bool:
     return ((a < check and b > check) or (a > check and b < check))
 
-samplingDensity = 20
+samplingDensity = 50
 
 vectorSamplingDensity = 20
 

@@ -1,7 +1,7 @@
 import math
 
-segALength = 0.9
-segBLength = 0.7
+segALength = 0.86
+segBLength = 0.81
 
 # must return a list of [elbowX, elbowY, endX, endY]
 def forwardKinematics(thetaA: float, thetaB: float) -> list: # keep this method!

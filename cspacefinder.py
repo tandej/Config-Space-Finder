@@ -35,11 +35,15 @@ pointYs = []
 
 for point in configPoints:
     if (xDimensionAngular):
-        pointXs.append(((point[0] + math.pi) % (2 * math.pi)) - math.pi)
+        ang = ((point[0] + math.pi) % (2 * math.pi)) - math.pi
+        if (ang < -math.pi / 2):
+            ang += 2 * math.pi
+        pointXs.append(ang)
     else:
         pointXs.append(point[0])
     if (yDimensionAngular):
-        pointYs.append(((point[1] + math.pi) % (2 * math.pi)) - math.pi)
+        ang = ((point[1] + math.pi) % (2 * math.pi)) - math.pi
+        pointYs.append(ang)
     else:
         pointYs.append(point[1])
 
